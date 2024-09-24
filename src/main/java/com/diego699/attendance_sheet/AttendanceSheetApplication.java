@@ -16,20 +16,5 @@ public class AttendanceSheetApplication {
         SpringApplication.run(AttendanceSheetApplication.class, args);
     }
 
-    @Bean
-    CommandLineRunner commandLineRunner(EventoDAO eventoDAO) {
-        return runner -> {
-            updateEvento(eventoDAO);
-
-        };
-    }
-
-    private void updateEvento(EventoDAO eventoDAO) {
-        System.out.println("Salvando ....");
-        Evento theEvento = new Evento("Teste", LocalDate.now());
-        theEvento = eventoDAO.update(theEvento);
-        System.out.println("Savo: " + theEvento);
-    }
-
 
 }
